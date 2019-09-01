@@ -115,8 +115,8 @@ final class Poll {
         zend_long timeout = -1;
         zval *zcall_flujo, *zcall_espera, *zcall_error;
         int argc = ZEND_NUM_ARGS() TSRMLS_CC;
-        if (zend_parse_parameters(argc, "z!|lz!z!", &zcall_flujo, &timeout, &zcall_espera, &zcall_error)==FAILURE) { return; } // fin if
-        if (!s_is_callable(zcall_espera, 1)) { return NULL; } // fin if
+        if (zend_parse_parameters(argc, "z!|lz!z!", &zcall_flujo, &timeout, &zcall_espera, &zcall_error)==FAILURE) { return NULL; } // fin if
+        if (!s_is_callable(zcall_flujo, 1)) { return NULL; } // fin if
         zend_bool bCallableError = 0, bCallableEspera = 0;
         if (argc>=3) {
             if (!s_is_callable(zcall_espera, 1)) { return NULL; } // fin if
